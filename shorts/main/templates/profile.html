@@ -1,0 +1,24 @@
+{% extends "master.html" %}
+
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block content %}
+  <ul>
+    <li>Username: {{ client.username }}</li>
+    <li>Email: {{ client.email }}</li>
+    <li>Rating: {{ client.rating }}</li>
+  </ul>
+
+  <div>
+    {% for short in shorts %}
+    <div>
+      <h3>{{ short.title }}</h3>
+      <img src="{{ short.image }}" alt="">
+      <h4>{{ client.username }}</h4>
+    </div>
+    {% endfor %}
+  </div>
+
+{% endblock content %}

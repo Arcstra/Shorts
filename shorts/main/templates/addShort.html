@@ -1,0 +1,22 @@
+{% extends "master.html" %}
+
+{% block title %}
+addShort
+{% endblock title %}
+
+{% block content %}
+  <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div>
+      {% for field in form %}
+        <p>
+          {{ field.label_tag }} {{ field }}
+        </p>
+      {% endfor %}
+
+      <input type="submit" value="Add">
+
+    </div>
+  </form>
+{% endblock content %}

@@ -1,0 +1,36 @@
+{% extends "master.html" %}
+
+{% block title %}Main{% endblock %}
+
+{% block content %}
+
+  <div>
+    {% for short in shorts %}
+    <div>
+      <h4>{{ short.client.username }}</h4>
+      <h3>{{ short.title }}</h3>
+      <img src="{{ short.image }}" alt="">
+
+      <div>
+        <input type="submit" onclick="editShortRating('plus', '{{ short.title }}')" value="+">
+        <div>{{ short.rating }}</div>
+        <input type="submit" onclick="editShortRating('minus', '{{ short.title }}')" value="-">
+      </div>
+    </div>
+    {% endfor %}
+
+    <script>
+      function editShortRating(edit, short) {
+        let response = fetch("/api/short/rating/",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              action: edit,
+              title: short
+            })
+          })
+      }
+    </script>
+  </div>
+  
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+
+{% block title %}
+Register Code
+{% endblock title %}
+
+{% block content %}
+
+  <form method="POST">
+    {% csrf_token %}
+
+    <p>Мы отправили вам 6-значный код на почту, которую вы указали при регистрации. Код будет действителен 2 минуты. Пожалуйста введите его:</p>
+    {{ form.code.label_tag }} {{ form.code }}
+    <input type="submit" value="Post">
+  </form>
+
+{% endblock content %}
