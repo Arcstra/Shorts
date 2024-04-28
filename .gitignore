@@ -3,3 +3,4 @@ __pycache__/
 image/
 migrations/
 db.sqlite3
+.env
